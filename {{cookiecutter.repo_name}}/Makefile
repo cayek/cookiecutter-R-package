@@ -16,14 +16,14 @@ help:
 rpackage-doc:
 	Rscript -e "devtools::document()"
 
-rpackage-test:
+rpackage-test: rpackage-install
 	Rscript -e "devtools::test()"
 
-rpackage-install:
+rpackage-install: rpackage-doc
 	Rscript -e "devtools::install()"
 
-rpackage-check:
+rpackage-check: rpackage-install
 	Rscript -e "devtools::check()"
 
-rpackage-build:
+rpackage-build: rpackage-install
 	Rscript -e "devtools::build()"
